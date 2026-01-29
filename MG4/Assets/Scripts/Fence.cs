@@ -5,4 +5,10 @@ using UnityEngine;
 public class Fence : MonoBehaviour
 {
 
+/*
+(1) Pipes move to the left endlessly.
+(2) Pipes have variation as to where the gap between the top and bottom pipes are placed.
+
+and should be prefab.
+*/
 }
