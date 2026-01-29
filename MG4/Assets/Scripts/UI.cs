@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private TMP_Text _scoreText;
+
     void Start()
     {
-        
+        Locator.Instance.Player._jumpEvent += UpdateScore;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateScore (int score)
     {
-        
+        _scoreText.text = "Score: " + Locator.Instance.Player._score.ToString();
     }
 }

@@ -1226,6 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d828e506c38d3a64bbb0c2fc3c15594d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fencePrefab: {fileID: 0}
 --- !u!1 &1073503520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c704a07c698f34abfd2b9b9ca7f4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 1533504637}
+  _collider: {fileID: 1533504636}
+  _audio: {fileID: 0}
+  _jump: 5
 --- !u!82 &1533504641
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1534,7 +1539,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 08857330299c8ca4e97094a5eb205292, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2099,10 +2104,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 133345116}
   - {fileID: 865748009}
+  - {fileID: 2001782162}
   - {fileID: 315884950}
   - {fileID: 1533504639}
   - {fileID: 1754089480}
   - {fileID: 24008640}
-  - {fileID: 2001782162}
-  - {fileID: 133345116}

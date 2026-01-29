@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fence : MonoBehaviour
 {
+    public float _speed = 2.0f;
+
 
 /*
 (1) Pipes move to the left endlessly.
@@ -11,4 +13,5 @@ public class Fence : MonoBehaviour
 
 and should be prefab.
 */
+
 }
