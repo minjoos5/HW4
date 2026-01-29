@@ -14,6 +14,6 @@ public class UI : MonoBehaviour
 
     private void UpdateScore (int score)
     {
-        _scoreText.text = "Score: " + Locator.Instance.Player._score.ToString();
+        _scoreText.text = Locator.Instance.Player._score.ToString();
     }
 }
