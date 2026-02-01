@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,13 +9,15 @@ public class Player : MonoBehaviour
 {
     public delegate void IntDelegate (int value);
     public event IntDelegate _jumpEvent;
+
+    
     [SerializeField] private Rigidbody2D _rb;
 
     [SerializeField] private CapsuleCollider2D _collider;
 
-    [SerializeField] private AudioSource _jumpAudio;
+    //[SerializeField] private AudioSource _jumpAudio;
 
-    [SerializeField] private AudioSource _deathAudio;
+    //[SerializeField] private AudioSource _deathAudio;
 
     public float _jump = 5.0f;
 
@@ -24,8 +28,8 @@ public class Player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<CapsuleCollider2D>();
-        _jumpAudio = GetComponent<AudioSource>();
-        _deathAudio = GetComponent<AudioSource>();
+        //_jumpAudio = GetComponent<AudioSource>();
+        //_deathAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jump);
-            _jumpAudio.Play();
+            //_jumpAudio.Play();
         }
         _jumpEvent?.Invoke(_score);
     }
@@ -67,8 +71,8 @@ public class Player : MonoBehaviour
         string tag = collision.gameObject.tag;
         if (tag.Equals("Fence"))
         {
-            _deathAudio.Play();
-            
+            //_deathAudio.Play();
+            Time.timeScale = 0;
         }
     }
 }
