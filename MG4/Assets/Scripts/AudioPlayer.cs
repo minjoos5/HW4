@@ -12,11 +12,14 @@ public class AudioPlayer : MonoBehaviour
 
     void Start()
     {
-        _jumpAudio = GetComponent<AudioSource>();
+        /*_jumpAudio = GetComponent<AudioSource>();
         _deathAudio = GetComponent<AudioSource>();
         _pointAudio = GetComponent<AudioSource>();
-        
-        
+        */
+
+        Locator.Instance.Player._scoreEvent += PlayPointSound;
+        Locator.Instance.Player._jumpEvent += PlayJumpSound;
+        Locator.Instance.Player._deathEvent += PlayDeathSound;
     }
 
     public void PlayJumpSound()
@@ -29,7 +32,7 @@ public class AudioPlayer : MonoBehaviour
         _deathAudio.Play();
     }
 
-    public void PlayPointSound()
+    public void PlayPointSound(int score)
     {
         _pointAudio.Play();
     }

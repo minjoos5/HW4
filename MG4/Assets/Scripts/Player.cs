@@ -2,13 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Profiling;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public delegate void IntDelegate (int value);
-    public event IntDelegate _jumpEvent;
+    public event IntDelegate _scoreEvent;
+
+    public delegate void Delegate();
+
+    public event Delegate _jumpEvent;
+
+    public event Delegate _deathEvent;
 
     
     [SerializeField] private Rigidbody2D _rb;
@@ -28,6 +35,7 @@ public class Player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<CapsuleCollider2D>();
+        
         //_jumpAudio = GetComponent<AudioSource>();
         //_deathAudio = GetComponent<AudioSource>();
     }
@@ -48,8 +56,9 @@ public class Player : MonoBehaviour
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jump);
             //_jumpAudio.Play();
+            _jumpEvent?.Invoke();
         }
-        _jumpEvent?.Invoke(_score);
+       
     }
     /*(4) The player loses if they collide with a pipe, which:
     plays a sound.
@@ -58,10 +67,12 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        
         string tag = collision.gameObject.tag;
         if (tag.Equals("Detector"))
         {
             _score ++;
+            _scoreEvent?.Invoke(_score);
         }
             
     }
@@ -72,6 +83,7 @@ public class Player : MonoBehaviour
         if (tag.Equals("Fence"))
         {
             //_deathAudio.Play();
+             _deathEvent?.Invoke();
             Time.timeScale = 0;
         }
     }

@@ -9,7 +9,7 @@ public class UI : MonoBehaviour
 
     void Start()
     {
-        Locator.Instance.Player._jumpEvent += UpdateScore;
+        Locator.Instance.Player._scoreEvent += UpdateScore;
     }
 
     private void UpdateScore (int score)
